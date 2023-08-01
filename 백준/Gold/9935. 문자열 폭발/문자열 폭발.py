@@ -1,4 +1,3 @@
-
 data = input()
 bomb = input()
 bomb_list = []
@@ -10,8 +9,8 @@ stack = []
 for d in data:
     stack.append(d)
     if stack[-bomb_size:] == bomb_list:
-        for i in range(bomb_size):
-            stack.pop()
+        del stack[-bomb_size:]
+        # for문 안에서 pop 하는것도 통과
 
 if len(stack) == 0:
     print('FRULA')
