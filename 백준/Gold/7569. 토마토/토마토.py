@@ -1,7 +1,4 @@
-box = []
-n = 0
-m = 0
-h = 0
+
 def check_change(z,x,y):
     if z < 0 or z >= h or x < 0 or x >=n or y < 0 or y >= m:    # 범위밖
         return False
@@ -10,7 +7,7 @@ def check_change(z,x,y):
         return True
     return False
 def day_after(success_tomato):
-    global box
+
     next_success_tomato = []    # 새롭게 익은 것들만
 
     for s in range(len(success_tomato)):
@@ -43,7 +40,7 @@ if __name__ == "__main__":
 
 
     day = 0
-
+    
     while len(success_tomato) != 0:
         next_success_tomato = day_after(success_tomato)
         new_success_count = len(next_success_tomato)
