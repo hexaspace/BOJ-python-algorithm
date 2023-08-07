@@ -1,3 +1,4 @@
+# 답 찾아 본 문제, 다시풀기
 import copy
 from collections import deque
 
@@ -10,19 +11,19 @@ def bfs():
     for i in range(x):
         for j in range(y):
             if this_map[i][j] == 2:
-                q.append([i, j])
+                q.append((i, j))
     while q:
         virus_index = q.popleft()
         for move in [[-1, 0], [1, 0], [0, -1], [0, 1]]:  # 상하좌우 이동
-            next_index = [virus_index[0] + move[0], virus_index[1] + move[1]]
+            next_x = virus_index[0] + move[0]
+            next_y = virus_index[1] + move[1]
             # print([next_index[0], next_index[1]])
-            if (0 <= next_index[0] < x) and (0 <= next_index[1] < y):  # map 안의 공간이라면
-                if (this_map[next_index[0]][next_index[1]] == 0):  # 감염 가능한 공간이라면
-                    this_map[next_index[0]][next_index[1]] = 2
-                    q.append(next_index)
+            if (0 <= next_x < x) and (0 <= next_y < y):  # map 안의 공간이라면
+                if (this_map[next_x][next_y] == 0):  # 감염 가능한 공간이라면
+                    this_map[next_x][next_y] = 2
+                    q.append((next_x, next_y))
                     this_zero_count -= 1
-    if max_zero_count < this_zero_count:
-        max_zero_count = this_zero_count
+    max_zero_count = max(max_zero_count, this_zero_count)
     return
 
 
